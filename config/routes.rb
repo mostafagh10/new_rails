@@ -13,5 +13,11 @@ Rails.application.routes.draw do
   put "posts", to:"post#updatepost"
   delete "posts", to:"post#deletepost"
 
+  #--------------------------------------------
+  get "authors", to:"author#index"
+  post "authors", to:"author#addauthor"
+  put "authors", to:"author#updateauthor"
+  delete "authors", to:"author#deleteauthor"
+
 
 end
