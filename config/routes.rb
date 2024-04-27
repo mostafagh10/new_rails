@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  get "users", to:"user#index"
+  get "posts", to:"post#index"
+  post "posts", to:"post#addpost"
+  put "posts", to:"post#updatepost"
+  delete "posts", to:"post#deletepost"
+
 
 end
