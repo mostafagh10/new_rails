@@ -10,7 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_22_124508) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_28_162924) do
+  create_table "authors", force: :cascade do |t|
+    t.string "name"
+    t.string "DOB"
+    t.string "email"
+    t.string "phone_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "emojis", force: :cascade do |t|
+    t.string "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "migrations", force: :cascade do |t|
+    t.string "add_author_id_to_posts"
+    t.integer "author_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_migrations_on_author_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.string "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.integer "age"
@@ -18,4 +48,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_22_124508) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "migrations", "authors"
 end
